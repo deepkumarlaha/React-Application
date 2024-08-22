@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  # Raectjs service
+  reactjs:
+    # Build the image using the specified Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Set the container name
+    container_name: react_app_test
+    # Set the Image name
+    image: react_app_test_img
+    # Restart the container on failure
+    restart: on-failure
+    # Expose port 3000 externally and map it to port 3000 internally
+    ports:
+      - 3000:3000
+    # Labels for the container
+    labels:
+      container.description: "Reactjs container"
+      container.version: "1.0"
+    # Connect the container to the network
+    networks:
+      - react_app_test_network
+
+# Define the network
+networks:
+  react_app_test_network:
+    driver: bridge

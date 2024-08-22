@@ -1,8 +1,9 @@
 FROM node:alpine AS build
 WORKDIR /opt/app
-COPY package.json ./
+COPY package.json package-lock.json ./
 RUN npm install
-COPY . ./
+COPY public ./public
+COPY src ./src
 RUN npm run build
 
 FROM node:alpine
