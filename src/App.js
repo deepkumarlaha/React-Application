@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         
-        hello INT
+        hello everyone
       </header>
     </div>
   );
